@@ -51,7 +51,7 @@ static uint64_t digits;
 
 /**
  * @brief Rough estimate of the number of digits per mp_limb_t in base
- * @param libs number of limbs
+ * @param limbs number of limbs
  * @param base number base
  */
 static int
@@ -125,8 +125,8 @@ float2str(mpz_t a, mpz_t b, uint64_t bits, int base)
 /**
  * @brief Square root function based upon the fact that n^2 = sum(1..n)[2 * n - 1]
  *
- * The algorithm works on bytes of the number n from left to right.
- * To access the bytes, the mpz_getlimbn() function is used together with
+ * The algorithm works on digit pairs of the number n from left to right.
+ * To access the digit pairs, the mpz_getlimbn() function is used together with
  * a current shift value decreasing from GMP_LIMB_BITS-SHIFT_BITS down to 0 by SHIFT_BITS.
  *
  * @param sqrt pointer to the mpz_t where to store the integer part of the square root
@@ -155,34 +155,44 @@ my_sqrt(mpz_t integer, mpz_t fraction, const mpz_t n, uint64_t bits)
 
 	len = mpz_size(n);					/* number of limbs in n */
 
-	/* find the first two hex digits of the number */
+	/* find the first two digits of the number */
 	limb = mpz_getlimbn(n, --len);
 
-	while (0 == (limb >> shift))				/* find the shift that gives a non zero byte */
+	/* find the shift that gives a non zero digit pair */
+	while (0 == (limb >> shift))
 		shift -= SHIFT_BITS;
 	dig2 = (limb >> shift) & SHIFT_MASK;
 
 	for (;;) {
-		mpz_mul_2exp(accu, accu, SHIFT_BITS);		/* shift accu left the number of bits */
-		mpz_add_ui(accu, accu, dig2);			/* put digit(s) in the least significant bits */
+		/* shift accu left the number of bits */
+		mpz_mul_2exp(accu, accu, SHIFT_BITS);
+		/* add 2 digits in the least significant bits */
+		mpz_add_ui(accu, accu, dig2);
 
-		/* subtract consecutive odd numbers 'step' until overflow, counting resulting digit in d */
+		/* subtract consecutive odd numbers 'step' until overflow,
+		 * counting up the resulting digit in d
+		 */
 		for (d = 0; mpz_cmp(step, accu) <= 0; d++) {
 			mpz_sub(accu, accu, step);
 			mpz_add_ui(step, step, 2);
 		}
 
-		mpz_mul_2exp(result, result, SHIFT_HBITS);	/* shift result left for one digit */
-		mpz_add_ui(result, result, d);			/* add digit(s) into result */
+		/* shift result left for one digit */
+		mpz_mul_2exp(result, result, SHIFT_HBITS);
+		/* add the digit to the result */
+		mpz_add_ui(result, result, d);
 
-		mpz_mul_2exp(step, result, SHIFT_HBITS+1);	/* next step = 2 * result * 2^hbits + 1 */
+		/* next step = 2 * result * 2^hbits + 1 */
+		mpz_mul_2exp(step, result, SHIFT_HBITS+1);
 		mpz_add_ui(step, step, 1);
 		if (0 == shift) {				/* if shift is 0 */
 			if (--len < 0)				/* get next lower limb */
-				break;
-			shift = GMP_LIMB_BITS - SHIFT_BITS;	/* reset shift to limb bits - shift bits */
+				break;				/* break out if no more limbs */
+			/* reset shift to limb bits - shift bits */
+			shift = GMP_LIMB_BITS - SHIFT_BITS;
 		} else {
-			shift -= SHIFT_BITS;			/* decrease shift to use next byte */
+			/* decrease shift to use next digit pair */
+			shift -= SHIFT_BITS;
 		}
 		limb = mpz_getlimbn(n, len);
 		dig2 = (limb >> shift) & SHIFT_MASK;
@@ -196,20 +206,28 @@ my_sqrt(mpz_t integer, mpz_t fraction, const mpz_t n, uint64_t bits)
 
 	int pct_old = -1;
 	for (calc = 0; calc < bits; calc += SHIFT_HBITS) {
-		mpz_mul_2exp(accu, accu, SHIFT_BITS);		/* shift accu left the number of bits */
+		/* shift accu left the number of bits */
+		mpz_mul_2exp(accu, accu, SHIFT_BITS);
 
-		/* subtract consecutive odd numbers 'step' until overflow, counting up digit in d */
+		/*
+		 * subtract consecutive odd numbers 'step' until overflow,
+		 * counting up the resulting digit in d
+		 */
 		for (d = 0; mpz_cmp(step, accu) <= 0; d++) {
 			mpz_sub(accu, accu, step);
 			mpz_add_ui(step, step, 2);
 		}
 
-		mpz_mul_2exp(result, result, SHIFT_HBITS);	/* left shift result for one digit */
-		mpz_add_ui(result, result, d);			/* add digit into result */
+		/* left shift result for one digit */
+		mpz_mul_2exp(result, result, SHIFT_HBITS);
+		/* add digit to result */
+		mpz_add_ui(result, result, d);
 
-		mpz_mul_2exp(step, result, SHIFT_HBITS+1);	/* next step = result * << (SHIFT_HBITS + 1) */
-		mpz_add_ui(step, step, 1);			/* step += 1 */
+		/* next step = result * << (SHIFT_HBITS + 1) */
+		mpz_mul_2exp(step, result, SHIFT_HBITS+1);
+		mpz_add_ui(step, step, 1);
 		if (progress) {
+			/* print progress info */
 			int pct_new = (int)(10000 * calc / bits);
 			if (pct_new != pct_old) {
 				fprintf(stderr, "\r%d.%02d%%", pct_new/100, pct_new%100);
@@ -217,8 +235,10 @@ my_sqrt(mpz_t integer, mpz_t fraction, const mpz_t n, uint64_t bits)
 			}
 		}
 	}
-	if (progress)
+	if (progress) {
+		/* print final progress */
 		fprintf(stderr, "\r%d%%   \n", 100);
+	}
 	mpz_init(fraction);
 	mpz_set(fraction, result);
 	mpz_clear(result);
