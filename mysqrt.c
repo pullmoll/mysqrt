@@ -41,11 +41,10 @@ static int base;
 static int perfect;
 static int list;
 static int wrap;
-static int phi;
 static uint64_t bits;
 static uint64_t digits;
 
-#define	SHIFT_BITS	4	/* 2, 4, 8, 16 */
+#define	SHIFT_BITS	8	/* 2, 4, 8, 16 */
 #define	SHIFT_HBITS	(SHIFT_BITS>>1)
 #define	SHIFT_MASK	((1<<SHIFT_BITS)-1)
 
@@ -278,7 +277,6 @@ int main(int argc, char **argv)
 	base = 10;
 	list = 0;
 	wrap = 0;
-	phi = 0;
 	progress = 0;
 
 	progname = strrchr(argv[0], '/');
@@ -317,63 +315,51 @@ int main(int argc, char **argv)
 			progress = 1;
 			continue;
 		}
-		if (!strcmp(argv[n], "-z")) {
-			phi = 1;
-			continue;
-		}
-		mpz_set_str(a, argv[n], 10);
-
-		if (base < 2)
-			base = 2;
-		if (base > 36)
-			base = 36;
-
-		if (0 == bits) {
-			/* calculate bits from digits */
-			if (0 == digits)
-				digits = 1000;
-			bits = digits * digits_per_limb(100, base) / GMP_LIMB_BITS;
-		}
-
-		/* round to multiples of 2/4/8 bits */
-		bits = (bits + SHIFT_BITS - 1) & ~(SHIFT_BITS - 1);
-		gmp_printf("Calculating sqrt(%Zd) for %llu bits\n", a, bits);
-		perfect = my_sqrt(integer, fraction, a, bits);
-		if (perfect) {
-			gmp_printf("%Zd = %Zd^2\n", a, integer);
-		} else {
-			if (phi) {
-				/* phi = (1 + sqrt(5)) / 2 */
-				mpz_add_ui(integer, integer, 1);
-				mpz_div_2exp(integer, integer, 1);
-				/* setting the top bit resembles the
-				 * division of the odd integer part by 2
-				 */
-				mpz_combit(fraction, bits);
-				bits++;
-			}
-			char* f = float2str(integer, fraction, bits, base);
-			if (list) {
-				unsigned n;
-				char* d;
-				for (n = 1, d = f; *d; n++, d++) {
-					if ('.' == *d)
-						d++;
-					printf("%u %c\n", n, *d);
-				}
-			} else if (wrap) {
-				unsigned offs;
-				printf("  %.78s\n", f);
-				for (offs = 78; offs < strlen(f); offs += 80)
-					printf("%.80s\n", f + offs);
-			} else {
-				gmp_printf("sqrt(%Zd) = %s\n", a, f);
-			}
-			free(f);
-		}
-		mpz_clear(a);
-		mpz_clear(integer);
-		mpz_clear(fraction);
+		break;
 	}
+
+	if (base < 2)
+		base = 2;
+	if (base > 36)
+		base = 36;
+
+	if (0 == bits) {
+		/* calculate bits from digits */
+		if (0 == digits)
+			digits = 1000;
+		bits = digits * digits_per_limb(100, base) / GMP_LIMB_BITS;
+	}
+
+	/* round to multiples of 2/4/8 bits */
+	bits = (bits + SHIFT_BITS - 1) & ~(SHIFT_BITS - 1);
+
+	mpz_set_str(a, argv[n], 10);
+	gmp_printf("Calculating sqrt(%Zd) for %llu bits\n", a, bits);
+	perfect = my_sqrt(integer, fraction, a, bits);
+	if (perfect) {
+		gmp_printf("%Zd = %Zd^2\n", a, integer);
+	} else {
+		char* f = float2str(integer, fraction, bits, base);
+		if (list) {
+			unsigned n;
+			char* d;
+			for (n = 1, d = f; *d; n++, d++) {
+				if ('.' == *d)
+					d++;
+				printf("%u %c\n", n, *d);
+			}
+		} else if (wrap) {
+			unsigned offs;
+			printf("  %.78s\n", f);
+			for (offs = 78; offs < strlen(f); offs += 80)
+				printf("%.80s\n", f + offs);
+		} else {
+			gmp_printf("sqrt(%Zd) = %s\n", a, f);
+		}
+		free(f);
+	}
+	mpz_clear(a);
+	mpz_clear(integer);
+	mpz_clear(fraction);
 	return 0;
 }
