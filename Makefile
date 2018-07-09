@@ -11,7 +11,7 @@ CDEFS+=	-DVER_MINOR=$(VER_MINOR)
 CDEFS+=	-DVER_PATCH=$(VER_PATCH)
 CFLAGS=	$(CDEFS) -W -Wall -O3 -ffast-math
 
-LIBS=	-lgmp
+LIBS=	-lgmp -lm
 LDFLAGS=
 
 PROG=mysqrt

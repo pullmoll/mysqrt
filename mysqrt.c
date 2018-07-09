@@ -34,11 +34,11 @@
 #include <stdint.h>
 #include <string.h>
 #include <inttypes.h>
+#include <math.h>
 #include <gmp.h>
 
 static int progress;
 static int base;
-static int perfect;
 static int list;
 static int wrap;
 static uint64_t bits;
@@ -54,9 +54,9 @@ static uint64_t digits;
  * @param base number base
  */
 static int
-digits_per_limb(uint64_t limbs, int base)
+digits_for_limbs(uint64_t limbs, int base)
 {
-	return limbs * GMP_LIMB_BITS / base;
+	return 1 + floor(limbs * GMP_LIMB_BITS * log(base) / log(10));
 }
 
 /**
@@ -91,13 +91,13 @@ float2str(mpz_t a, mpz_t b, uint64_t bits, int base)
 		mpz_mul_2exp(w, w, shift);
 
 	/* size of the buffer required */
-	size = digits_per_limb(alimb, base) + digits_per_limb(blimb, base) + 1;
+	size = digits_for_limbs(alimb, base) + digits_for_limbs(blimb, base) + 1;
 	buff = calloc(size + 1, sizeof(char));
 	if (NULL == buff)
 		return strdup("<memory error>");
 
 	/* offs = start of the fractional part */
-	offs = digits_per_limb(alimb, base) + 1;
+	offs = digits_for_limbs(alimb, base) + 1;
 	while (0 != mpz_cmp_ui(w, 0) && offs < size) {
 		mpz_mul_ui(w, w, base);		/* multiply by base giving the next digit */
 		blimb = mpz_size(b);		/* in the most significant limb */
@@ -106,8 +106,10 @@ float2str(mpz_t a, mpz_t b, uint64_t bits, int base)
 		/* store fractional digit to the right */
 		buff[offs++] = r < 10 ? '0' + r : 'a' + r - 10;
 	}
+	while (offs > 1 && buff[offs - 1] == '0')
+		buff[--offs] = '\0';
 
-	offs = digits_per_limb(alimb, base);
+	offs = digits_for_limbs(alimb, base);
 	buff[offs] = '.';			/* decimal point */
 	while (0 != mpz_cmp_ui(v, 0) && offs > 0) {
 		r = mpz_fdiv_q_ui(v, v, base);	/* divide by base and get the remainder */
@@ -252,8 +254,6 @@ usage(const char* progname)
 	printf("Usage: %s [options] number\n", progname);
 	printf("Where options can be one or more of:\n");
 	printf("-b nnn\tnumber of fraction bits to calculate\n");
-	printf("-d nnn\tnumber of decimal digits to calculate (est.), default: %" PRIu64 "\n",
-		(uint64_t)digits);
 	printf("-l\tprint result as list of digits\n");
 	printf("-w\tprint result idented by 2 spaces and wrapped at 80 columns\n");
 	printf("-o b\toutput result in base b (2...36), default: %d\n",
@@ -290,11 +290,6 @@ int main(int argc, char **argv)
 			bits = strtoull(argv[n], NULL, 10);
 			continue;
 		}
-		if (!strcmp(argv[n], "-d")) {
-			n++;
-			digits = strtoull(argv[n], NULL, 10);
-			continue;
-		}
 		if (!strcmp(argv[n], "-h")) {
 			return usage(progname);
 		}
@@ -317,6 +312,8 @@ int main(int argc, char **argv)
 		}
 		break;
 	}
+	if (n >= argc)
+		return usage(progname);
 
 	if (base < 2)
 		base = 2;
@@ -327,16 +324,19 @@ int main(int argc, char **argv)
 		/* calculate bits from digits */
 		if (0 == digits)
 			digits = 1000;
-		bits = digits * digits_per_limb(100, base) / GMP_LIMB_BITS;
+		bits = digits * GMP_LIMB_BITS / digits_for_limbs(1, base);
 	}
 
 	/* round to multiples of 2/4/8 bits */
 	bits = (bits + SHIFT_BITS - 1) & ~(SHIFT_BITS - 1);
 
 	mpz_set_str(a, argv[n], 10);
-	gmp_printf("Calculating sqrt(%Zd) for %llu bits\n", a, bits);
-	perfect = my_sqrt(integer, fraction, a, bits);
-	if (perfect) {
+	if (progress) {
+		gmp_printf("Calculating sqrt(%Zd) for %llu bits\n", a, bits);
+	}
+
+	if (my_sqrt(integer, fraction, a, bits)) {
+		/* a is a perfect square */
 		gmp_printf("%Zd = %Zd^2\n", a, integer);
 	} else {
 		char* f = float2str(integer, fraction, bits, base);
