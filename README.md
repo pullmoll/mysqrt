@@ -1,5 +1,15 @@
 ### Calculating the square root of a number - digit by digit
 
+#### Prerequisites.
+
+The projects depends on the *GNU Compiler Collection* (GCC) and the
+*GNU Multiple Precision Arithmetic Library* (GMP).
+Most Linux distributions have a `libgmp-dev` or `libgmp-devel` package
+you may need to install.
+There is just a Makefile with no frills, so all you have to do is
+```
+$ make
+```
 
 #### The basic algorithm.
 The algorithm used here is not fast, but accurate for each digit which is calculated.
