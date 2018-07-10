@@ -21,29 +21,31 @@ the number of bits per step. It can be
 - 8 for 2 * 4-bit digits
 - etc.
 
-The name used in this source for the bits in two digits is SHIFT_BITS.
-The name used for the bits in one digit is SHIFT_HBITS.
+The name used in this source for the bits in two digits is `SHIFT_BITS`.
+The name used for the bits in one digit is `SHIFT_HBITS`.
 
-Taking the leftmost digit pair into an accumulator (accu) the algorithm subtracts
+Taking the leftmost digit pair into an accumulator (`accu`) the algorithm subtracts
 the sequence of odd numbers, starting at 1, until the result underflows.
 
 The count of successful subtractions before the underflow occurs is the first
 digit of the result.
 
-The next two digits of the number are then appended to the remainder of this sequence
-of subtractions.
+The next two digits of the number are then appended to the accumulator.
+That is the accumulator is shifted left by `SHIFT_BITS` and the two digits are added to it.
 
-The next start value for subtracting odd numbers (step) is calculated by taking
-result so far, left shifting it by (SHIFT_HBITS + 1) and adding 1.
+The next start value for subtracting odd numbers (`step`) is then calculated by taking
+the result so far, left shifting it by `(SHIFT_HBITS + 1)` and adding `1`.
 
-Again odd numbers (step, step + 2, step + 4, ...) are subtracted from the accumulator
+Now again odd numbers (step, step + 2, step + 4, ...) are subtracted from the accumulator
 until it underflows. The count of successful subtractions before the underflow
-occurs is the next digit.
+occurs is the next digit of the result.
 
-This continue as long as more bits are available in the input number.
+That is the result is shifted left by `SHIFT_HBITS` and the digit is added to it.
+
+This continues for as long as more bits are available in the input number.
 
 If there are no more bits in the input, and if the accumulator is zero at this point,
-the input number was a perfect square.
+the input number was a perfect square and the function returns.
 
 Otherwise the shifting and subtracting continues for a specified number of
 requested result bits. Instead of appending more digit pairs of the input number
