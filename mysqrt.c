@@ -68,7 +68,7 @@ digits_for_limbs(uint64_t limbs, int base)
  * @param base base for output (e.g. 10)
  */
 static char *
-float2str(mpz_t a, mpz_t b, uint64_t bits, int base)
+mpz2str(mpz_t a, mpz_t b, uint64_t bits, int base)
 {
 	mpz_t v;
 	mpz_t w;
@@ -339,7 +339,7 @@ int main(int argc, char **argv)
 		/* a is a perfect square */
 		gmp_printf("%Zd = %Zd^2\n", a, integer);
 	} else {
-		char* f = float2str(integer, fraction, bits, base);
+		char* f = mpz2str(integer, fraction, bits, base);
 		if (list) {
 			unsigned n;
 			char* d;
