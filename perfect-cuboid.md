@@ -47,6 +47,7 @@ Now since *d*, *e*, and *f* are all multiples of the hypotenuse of a *pPT*,
 they are all multiples of an odd length. On the other hand all of *a*, *b*, and *c* are
 multiples of the legs (cathetus) of two of the three *pPT*s and as such they are multiples
 of either the even or the odd leg of those pPTs:
+
  <tt>a = x · ax = y · ay</tt><br/>
  <tt>b = x · bx = z · bz</tt><br/>
  <tt>c = y · cy = z · cz</tt><br/>
