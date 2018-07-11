@@ -46,7 +46,7 @@ or neglecting the existence of such a perfect cuboid.
 Now since *d*, *e*, and *f* are all multiples of the hypotenuse of a *pPT*,
 they are all multiples of an odd length. On the other hand all of *a*, *b*, and *c* are
 multiples of the legs (cathetus) of two of the three *pPT*s and as such they are multiples
-of either the even or the odd leg of those pPTs:
+of either the even or the odd leg of those *pPT*s:
 
  <tt>a = x · ax = y · ay</tt><br/>
  <tt>b = x · bx = z · bz</tt><br/>
@@ -54,7 +54,7 @@ of either the even or the odd leg of those pPTs:
 
 Since every pPT has exactly one odd length leg, one even length leg, and an odd length hypotenuse,
 *g* cannot at the same time satisfy all three of the equations involving one face diagonal *d*, *e*, or *f*
-for one leg and the opposite side length *c*, *b*, or *a* for the other leg.
+for one leg and the opposite side length *c*, *b*, or *a* for the other leg of a *PT*.
 
 Exactly one of *a*, *b*, or *c* is in two ways a multiple of the odd length leg of two *pPT*s.
 Because no *pPT* has two odd legs, the *PT* giving *g* does not exist.
