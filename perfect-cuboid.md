@@ -40,8 +40,8 @@ There are three more, equivalent equations which describe the length of *g*:
   <tt>  = z<sup>2</sup> · f<sub>z</sub><sup>2</sup> + a<sup>2</sup></tt></br>
   <tt>  = z<sup>2</sup> · (b<sub>z</sub><sup>2</sup> + c<sub>z</sub><sup>2</sup>) + a<sup>2</sup></tt>
 
-Until today it is not known wheter a perfect cuboid exists, or if there is a proof supporting
-or neglecting the existence of such a perfect cuboid.
+Until today no perfect cuboid was found by searches run on computers and it is unknown,
+whether there is a proof supporting or neglecting the existence of such a perfect cuboid.
 
 Now since *d*, *e*, and *f* are all multiples of the hypotenuse of a *pPT*,
 they are all multiples of an odd length. On the other hand all of *a*, *b*, and *c* are
@@ -53,8 +53,8 @@ of either the even or the odd leg of those *pPT*s:
  <tt>c = y · cy = z · cz</tt><br/>
 
 Since every pPT has exactly one odd length leg, one even length leg, and an odd length hypotenuse,
-*g* cannot at the same time satisfy all three of the equations involving one face diagonal *d*, *e*, or *f*
-for one leg and the opposite side length *c*, *b*, or *a* for the other leg of a *PT*.
+*g* cannot at the same time satisfy all three of the equations involving one face diagonal
+*d*, *e*, or *f* for one leg and the opposite side length *c*, *b*, or *a* for the other leg of a *PT*.
 
 Exactly one of *a*, *b*, or *c* is in two ways a multiple of the odd length leg of two *pPT*s.
 Because no *pPT* has two odd legs, the *PT* giving *g* does not exist.
