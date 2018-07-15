@@ -48,9 +48,9 @@ they are all multiples of an odd length. On the other hand all of *a*, *b*, and 
 multiples of the legs (cathetus) of two of the three *pPT*s and as such they are multiples
 of either the even or the odd leg of those *pPT*s:
 
- <tt>a = x · ax = y · ay</tt><br/>
- <tt>b = x · bx = z · bz</tt><br/>
- <tt>c = y · cy = z · cz</tt><br/>
+ <tt>a = x · a<sub>x</sub> = y · a<sub>y</sub></tt><br/>
+ <tt>b = x · b<sub>x</sub> = z · b<sub>z</sub></tt><br/>
+ <tt>c = y · c<sub>y</sub> = z · c<sub>z</sub></tt><br/>
 
 Since every pPT has exactly one odd length leg, one even length leg, and an odd length hypotenuse,
 *g* cannot at the same time satisfy all three of the equations involving one face diagonal
