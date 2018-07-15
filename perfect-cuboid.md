@@ -59,4 +59,4 @@ Since every pPT has exactly one odd length leg, one even length leg, and an odd 
 Exactly one of *a*, *b*, or *c* is in two ways a multiple of the odd length leg of two *pPT*s.
 Because no *pPT* has two odd legs, the *PT* giving *g* does not exist.
 
-Jürgen Buchmüller <pullmoll@t-online.de>
+Jürgen Buchmüller <pullmoll@t-online.de>, July 15th 2018
