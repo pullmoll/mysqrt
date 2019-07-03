@@ -1,0 +1,28 @@
+Warum √(a² + b² + c²) ≠ d ist, für a, b, c, d ∈ ℕ.
+
+1. Die Seiten jedes primitiven rechtwinkligen Dreiecks, also die
+primitiven Pythagoräischen Tripel (pPT), bestehen immer aus einer
+Kathete mit ungerader, einer Kathete mit gerader, und der
+Hypotenuse mit ungerader Länge.
+
+2. Jedes rechtwinklige Dreieck, also jedes generelle Pythagoräische
+Tripel (PT), ist auf genau eine Weise das Produkt eines pPT und
+eines Faktors f ∈ ℕ.
+
+Wegen der Kommutativität der Summanden innerhalb der Quadratwurzel
+auf der linken Seite von
+
+	 √(a² + b² + c²) = d
+
+sind folgende Gleichungen
+
+	√(√(a² + b²) + c²) = d
+	√(√(a² + c²) + b²) = d
+	√(√(b² + c²) + a²) = d
+
+äquivalent.
+
+Das Ergebnis jeder inneren Quadratwurzel entspräche der Länge der
+Hypotenuse eines PT und somit dem Vielfachen einer ungeraden Zahl.
+Folglich müssten c, b und a in den drei Gleichungen allesamt Vielfache
+von gerade Zahlen sein, um die Bedingung für PT zu erfüllen.

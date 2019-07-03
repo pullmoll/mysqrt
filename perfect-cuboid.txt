@@ -1,0 +1,27 @@
+Why √(a² + b² + c²) ≠ d, where a, b, c, d ∈ ℕ.
+
+1. The sides of a primitive rectangular triangle, i.e. the primitive
+Pythagorean Triples (pPT), always consist of one odd length cathetus,
+one even length cathetus, and the odd length hypotenuse.
+
+2. Every general rectangular triangle, i.e. every general Pythagorean
+Triple (PT), is in exactly one way the multiple of a pPT and a
+factor f ∈ ℕ.
+
+Because of the commutativity of the addends inside the square root
+on the left side of
+
+	 √(a² + b² + c²) = d
+
+each of
+
+	√(√(a² + b²) + c²) = d
+	√(√(a² + c²) + b²) = d
+	√(√(b² + c²) + a²) = d
+
+is equivalent.
+
+Every inner square root‘s result is the length of the hypotenuse of a
+PT and thus the multiple of an odd number. As a consequence each of c,
+b, and a in the three equations would have to be a multiple of an even
+number to meet the condition for PT.
