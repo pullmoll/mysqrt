@@ -25,4 +25,4 @@ sind folgende Gleichungen
 Das Ergebnis jeder inneren Quadratwurzel entspräche der Länge der
 Hypotenuse eines PT und somit dem Vielfachen einer ungeraden Zahl.
 Folglich müssten c, b und a in den drei Gleichungen allesamt Vielfache
-von gerade Zahlen sein, um die Bedingung für PT zu erfüllen.
+von geraden Zahlen sein, um die Bedingung für PT zu erfüllen.
