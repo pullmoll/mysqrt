@@ -1,4 +1,4 @@
-Why √(a² + b² + c²) ≠ d, where a, b, c, d ∈ ℕ.
+Why the perfect cuboid's √(a² + b² + c²) ≠ d, where a, b, c, d ∈ ℕ.
 
 1. The sides of a primitive rectangular triangle, i.e. the primitive
 Pythagorean Triples (pPT), always consist of one odd length cathetus,

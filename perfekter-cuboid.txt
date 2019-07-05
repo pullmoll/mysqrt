@@ -1,4 +1,4 @@
-Warum √(a² + b² + c²) ≠ d ist, für a, b, c, d ∈ ℕ.
+Warum im perfekten Cuboid √(a² + b² + c²) ≠ d ist, für a, b, c, d ∈ ℕ.
 
 1. Die Seiten jedes primitiven rechtwinkligen Dreiecks, also die
 primitiven Pythagoräischen Tripel (pPT), bestehen immer aus einer
