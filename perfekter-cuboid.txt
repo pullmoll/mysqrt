@@ -9,20 +9,26 @@ Hypotenuse mit ungerader Länge.
 Tripel (PT), ist auf genau eine Weise das Produkt eines pPT und
 eines Faktors f ∈ ℕ.
 
-Wegen der Kommutativität der Summanden innerhalb der Quadratwurzel
-auf der linken Seite von
+Wegen der Kommutativität der Summanden innerhalb der Quadratwurzel auf
+der linken Seite von
 
 	 √(a² + b² + c²) = d
 
 sind folgende Gleichungen
 
-	√(√(a² + b²) + c²) = d
-	√(√(a² + c²) + b²) = d
 	√(√(b² + c²) + a²) = d
+	√(√(a² + c²) + b²) = d
+	√(√(a² + b²) + c²) = d
 
-äquivalent.
+äquivalent. Dabei ist d die Länge der Raumdiagonalen des pefekten Cuboids.
 
-Das Ergebnis jeder inneren Quadratwurzel entspräche der Länge der
-Hypotenuse eines PT und somit dem Vielfachen einer ungeraden Zahl.
-Folglich müssten c, b und a in den drei Gleichungen allesamt Vielfache
+Das Ergebnis jeder inneren Quadratwurzel entspricht der Länge der
+Hypotenuse eines PT und ist somit ein Vielfaches einer ungeraden Zahl.
+
+Folglich müssen a, b und c in den drei Gleichungen jeweils Vielfache
 von geraden Zahlen sein, um die Bedingung für PT zu erfüllen.
+
+Andererseits muss in den inneren Quadratwurzeln jeweils genau eins von
+a, b oder c ein Vielfaches einer ungeraden Zahl sein.
+
+Reductio ad absurdum.

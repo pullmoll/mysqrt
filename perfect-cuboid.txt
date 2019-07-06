@@ -1,12 +1,13 @@
-Why the perfect cuboid's √(a² + b² + c²) ≠ d, where a, b, c, d ∈ ℕ.
+Why a perfect cuboid‘s √(a² + b² + c²) ≠ d, where a, b, c, d ∈ ℕ.
 
-1. The sides of a primitive rectangular triangle, i.e. the primitive
-Pythagorean Triples (pPT), always consist of one odd length cathetus,
-one even length cathetus, and the odd length hypotenuse.
+1. The sides of a primitive rectangular triangle, i.e. the
+primitive Pythagorean Triples (pPT), always consist of one
+odd length cathetus, one even length cathetus, and the odd
+length hypotenuse.
 
-2. Every general rectangular triangle, i.e. every general Pythagorean
-Triple (PT), is in exactly one way the multiple of a pPT and a
-factor f ∈ ℕ.
+2. Every general rectangular triangle, i.e. every general
+Pythagorean Triple (PT), is in exactly one way the multiple
+of a pPT and a factor f ∈ ℕ.
 
 Because of the commutativity of the addends inside the square root
 on the left side of
@@ -15,13 +16,19 @@ on the left side of
 
 each of
 
-	√(√(a² + b²) + c²) = d
-	√(√(a² + c²) + b²) = d
 	√(√(b² + c²) + a²) = d
+	√(√(a² + c²) + b²) = d
+	√(√(a² + b²) + c²) = d
 
-is equivalent.
+is equivalent. d is the length of the space diagonal of the perfect cuboid.
 
-Every inner square root‘s result is the length of the hypotenuse of a
-PT and thus the multiple of an odd number. As a consequence each of c,
-b, and a in the three equations would have to be a multiple of an even
-number to meet the condition for PT.
+Every inner square root result is the length of the hypotenuse of a PT
+and thus the multiple of an odd number.
+
+It follows that each of a, b, and c in the three equations needs to
+be a multiple of an even number to meet the condition for PT.
+
+On the other hand in the inner square roots in each case exactly
+one of a, b, or c needs to be the multiple of an odd number.
+
+Reductio ad absurdum.
