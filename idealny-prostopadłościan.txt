@@ -1,0 +1,36 @@
+Dlaczego idealne prostopadłościany √(a²+b²+c²) ≠ d, gdzie a,b,c,d ∈ ℕ.
+
+1. Boki prymitywnego trójkąta prostokątnego, tj prymitywne
+potrójne pitagorejskie (pPT) zawsze składają się z jednego
+katetus o nieparzystej długości, jedna równa kateta i dziwna
+przeciwprostokątna długości.
+
+2. Każdy ogólny trójkąt prostokątny, tj. Każdy generał
+Potrójna Pitagorasa (PT), jest dokładnie w jedną stronę
+wielokrotnością pPT i współczynnik f ∈ ℕ.
+
+Ze względu na przemienność dodatków wewnątrz pierwiastka
+kwadratowego po lewej stronie
+
+	√(a² + b² + c²) = d
+
+każdy z
+
+	√(√(b² + c²) a²) = d
+	√(√(a² + c²) b²) = d
+	√(√(a² + b²) c²) = d
+
+jest równoważny. d to długość przekątnej przestrzeni idealnego
+prostopadłościanu.
+
+Każdy wynik wewnętrznego pierwiastka kwadratowego jest długością
+przeciwprostokątnej PT a zatem wielokrotność liczby nieparzystej.
+
+Wynika z tego, że każdy z a, b i c w trzech równaniach musi
+być wielokrotnością liczby parzystej, aby spełnić warunek dla PT.
+
+Z drugiej strony w wewnętrznych pierwiastkach kwadratowych w każdym
+przypadku dokładnie jeden z a, b lub c musi być wielokrotnością
+liczby nieparzystej.
+
+Reductio ad absurdum.
