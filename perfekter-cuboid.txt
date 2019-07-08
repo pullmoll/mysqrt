@@ -16,9 +16,9 @@ der linken Seite von
 
 sind folgende Gleichungen
 
-	√(√(b² + c²) + a²) = d
-	√(√(a² + c²) + b²) = d
-	√(√(a² + b²) + c²) = d
+	√(√(b² + c²)² + a²) = d
+	√(√(a² + c²)² + b²) = d
+	√(√(a² + b²)² + c²) = d
 
 äquivalent. Dabei ist d die Länge der Raumdiagonalen des pefekten Cuboids.
 

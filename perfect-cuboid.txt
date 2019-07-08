@@ -16,9 +16,9 @@ on the left side of
 
 each of
 
-	√(√(b² + c²) + a²) = d
-	√(√(a² + c²) + b²) = d
-	√(√(a² + b²) + c²) = d
+	√(√(b² + c²)² + a²) = d
+	√(√(a² + c²)² + b²) = d
+	√(√(a² + b²)² + c²) = d
 
 is equivalent. d is the length of the space diagonal of the perfect cuboid.
 
