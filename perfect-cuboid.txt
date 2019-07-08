@@ -25,8 +25,8 @@ is equivalent. d is the length of the space diagonal of the perfect cuboid.
 Every inner square root result is the length of the hypotenuse of a PT
 and thus the multiple of an odd number.
 
-It follows that each of a, b, and c in the three equations needs to
-be a multiple of an even number to meet the condition for PT.
+It follows that each of a, b, and c on the right in the three equations
+need to be a multiple of an even number to meet the condition for PT.
 
 On the other hand in the inner square roots in each case exactly
 one of a, b, or c needs to be the multiple of an odd number.

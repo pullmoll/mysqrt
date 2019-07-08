@@ -25,7 +25,7 @@ sind folgende Gleichungen
 Das Ergebnis jeder inneren Quadratwurzel entspricht der Länge der
 Hypotenuse eines PT und ist somit ein Vielfaches einer ungeraden Zahl.
 
-Folglich müssen a, b und c in den drei Gleichungen jeweils Vielfache
+Folglich müssen a, b und c rechts in den drei Gleichungen jeweils Vielfache
 von geraden Zahlen sein, um die Bedingung für PT zu erfüllen.
 
 Andererseits muss in den inneren Quadratwurzeln jeweils genau eins von
