@@ -1,34 +1,36 @@
-Warum im perfekten Cuboid √(a² + b² + c²) ≠ d ist, für a, b, c, d ∈ ℕ.
+﻿Warum im perfekten Cuboid √(a² + b² + c²) ≠ d ist, für a, b, c, d ∈ ℕ.
 
-1. Die Seiten jedes primitiven rechtwinkligen Dreiecks, also die
-primitiven Pythagoräischen Tripel (pPT), bestehen immer aus einer
-Kathete mit ungerader, einer Kathete mit gerader, und der
-Hypotenuse mit ungerader Länge.
+1. Die Seiten jedes primitiven rechtwinkligen Dreiecks, also die primitiven
+Pythagoräischen Tripel (pPT), bestehen immer aus einer Kathete mit ungerader,
+einer Kathete mit gerader, und der Hypotenuse mit ungerader Länge.
 
-2. Jedes rechtwinklige Dreieck, also jedes generelle Pythagoräische
-Tripel (PT), ist auf genau eine Weise das Produkt eines pPT und
-eines Faktors f ∈ ℕ.
+2. Jedes rechtwinklige Dreieck, also jedes generelle Pythagoräische Tripel
+(PT), ist auf genau eine Weise das Produkt eines pPT und eines Faktors f ∈ ℕ.
 
-Wegen der Kommutativität der Summanden innerhalb der Quadratwurzel auf
-der linken Seite von
+3. Die PT eines Cuboids mit den Kantenlängen a, b und c sind:
+
+	a, b, √(a²+b²)
+	a, c, √(a²+c²)
+	b, c, √(b²+c²)
+
+4. Die Länge der Raumdiagonalen eines Cuboids ist:
 
 	 √(a² + b² + c²) = d
 
-sind folgende Gleichungen
+5. Wegen der Kommutativität der Summanden innerhalb der Quadratwurzel auf der
+linken Seite sind die drei folgenden Gleichungen äquivalent:
 
 	√(√(b² + c²)² + a²) = d
 	√(√(a² + c²)² + b²) = d
 	√(√(a² + b²)² + c²) = d
 
-äquivalent. Dabei ist d die Länge der Raumdiagonalen des pefekten Cuboids.
+Das Ergebnis jeder inneren Quadratwurzel entspricht der Länge der Hypotenuse eines
+PT und somit dem Vielfachen einer ungeraden Zahl.
 
-Das Ergebnis jeder inneren Quadratwurzel entspricht der Länge der
-Hypotenuse eines PT und ist somit ein Vielfaches einer ungeraden Zahl.
+Folglich müssten a, b und c rechts in den drei Gleichungen allesamt Vielfache von
+geraden Zahlen sein, um die Bedingung für PT zu erfüllen.
 
-Folglich müssen a, b und c rechts in den drei Gleichungen jeweils Vielfache
-von geraden Zahlen sein, um die Bedingung für PT zu erfüllen.
-
-Andererseits muss in den inneren Quadratwurzeln jeweils genau eins von
-a, b oder c ein Vielfaches einer ungeraden Zahl sein.
+Andererseits muss in der inneren Quadratwurzel jeweils genau eines von a, b oder
+c ein Vielfaches einer ungeraden Zahl sein.
 
 Reductio ad absurdum.
