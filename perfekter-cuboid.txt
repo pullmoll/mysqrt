@@ -1,36 +1,46 @@
 ﻿Warum im perfekten Cuboid √(a² + b² + c²) ≠ d ist, für a, b, c, d ∈ ℕ.
 
-1. Die Seiten jedes primitiven rechtwinkligen Dreiecks, also die primitiven
-Pythagoräischen Tripel (pPT), bestehen immer aus einer Kathete mit ungerader,
-einer Kathete mit gerader, und der Hypotenuse mit ungerader Länge.
+1) Die Seiten jedes primitiven rechtwinkligen Dreiecks sind die primitiven
+Pythagoräischen Tripel (pPT). Sie bestehen immer aus einer Kathete mit
+ungerader, einer Kathete mit gerader, und der Hypotenuse mit ungerader Länge.
 
-2. Jedes rechtwinklige Dreieck, also jedes generelle Pythagoräische Tripel
-(PT), ist auf genau eine Weise das Produkt eines pPT und eines Faktors f ∈ ℕ.
+2) Jedes rechtwinklige Dreieck ist ein generelles Pythagoräische Tripel (PT).
+Dieses PT ist auf genau eine Weise das Produkt eines pPT und eines Faktors F ∈ ℕ.
 
-3. Die PT eines Cuboids mit den Kantenlängen a, b und c sind:
+3) Die PT der Flächendreiecke eines Cuboids mit den Kantenlängen a, b und c sind:
+	3.1)	a, b, √(a²+b²)
+	3.2)	a, c, √(a²+c²)
+	3.3)	b, c, √(b²+c²)
 
-	a, b, √(a²+b²)
-	a, c, √(a²+c²)
-	b, c, √(b²+c²)
+4) Die geraden und ungeraden Katheten jedes Paars der generierenden pPT dieser
+drei PT hängen in einer von zwei möglichen Konfigurationen zusammen. Hier meint
+g die Kathete mit gerader und u die Kathete mit ungerader Länge:
+	4.1)	g↔u	g↔u	g↔u
+	4.2)	g↔g	g↔u	u↔u
 
-4. Die Länge der Raumdiagonalen eines Cuboids ist:
+In einer kleinsten gedachten Lösung für einen perfekten Cuboid kann die
+Konfiguration nicht 4.1 sein, da unabhängig von den drei Faktoren für die
+drei PT, die Lösung in jedem Fall durch 2 teilbar wäre und somit,
+im Widerspruch zur Annahme, nicht die kleinste Lösung.
 
-	 √(a² + b² + c²) = d
+5) Die Länge der Raumdiagonalen des pefekten Cuboids ist:
+	 5.1)	√(a² + b² + c²) = d
 
-5. Wegen der Kommutativität der Summanden innerhalb der Quadratwurzel auf der
-linken Seite sind die drei folgenden Gleichungen äquivalent:
-
-	√(√(b² + c²)² + a²) = d
-	√(√(a² + c²)² + b²) = d
-	√(√(a² + b²)² + c²) = d
+6) Wegen der Kommutativität der Summanden innerhalb der Quadratwurzel auf der
+linken Seite sind die  folgenden drei Gleichungen äquivalent:
+	6.1)	√(√(b² + c²)² + a²) = d
+	6.2)	√(√(a² + c²)² + b²) = d
+	6.3)	√(√(a² + b²)² + c²) = d
 
 Das Ergebnis jeder inneren Quadratwurzel entspricht der Länge der Hypotenuse eines
-PT und somit dem Vielfachen einer ungeraden Zahl.
+PT und somit dem Vielfachen einer ungeraden Zahl, der Länge der Hypotenuse
+des generierenden pPT.
 
-Folglich müssten a, b und c rechts in den drei Gleichungen allesamt Vielfache von
-geraden Zahlen sein, um die Bedingung für PT zu erfüllen.
+Folglich müssten a, b und c rechts in den drei Gleichungen alles Vielfache einer
+geraden Zahlen sein, um die Bedingung für das pPT zu erfüllen, aus welchem
+dieses PT generiert wird.
 
-Andererseits muss in der inneren Quadratwurzel jeweils genau eines von a, b oder
-c ein Vielfaches einer ungeraden Zahl sein.
+Andererseits muss in der inneren Quadratwurzel jeweils genau eines von a, b oder c
+ein Vielfaches einer ungeraden Zahl sein.
 
 Reductio ad absurdum.
